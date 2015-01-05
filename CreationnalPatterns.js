@@ -3,7 +3,10 @@
  * JS Creational patterns
  */
 
-var obj = {};
+var obj = {
+    occupation : "software Engineer",
+    lastName : "Dell"
+};
 
 obj.firstName = "Akim";
 obj["lastName"] = "Delli";
