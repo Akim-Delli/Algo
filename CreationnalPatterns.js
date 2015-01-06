@@ -5,17 +5,19 @@
 (function () {
     'use strict';
 
+    // Variables declaration
     var obj = {
         occupation: "software Engineer",
         lastName: "Dell"
-    };
+    },
+        firstName, lastName, JohnDoe, JaneDoe, sayName, greeting;
 
     obj.firstName = "Akim";
-    obj["lastName"] = "Delli";
+    obj.lastName = "Delli";
 
 
-    var firstName = obj["firstName"];
-    var lastName = obj.lastName;
+    firstName = obj.firstName;
+    lastName = obj.lastName;
 
 
 // EMACScript 5
@@ -34,7 +36,6 @@
 
 // Object Creation with Object.Create() ECMACScript 5
 
-    var JohnDoe, JaneDoe, sayName, greeting;
     JohnDoe = {
         firstName: "John",
         lastName: "Doe",
@@ -60,5 +61,7 @@
 
     console.log(sayName);
     console.log(greeting);
+    console.log(firstName);
+    console.log(lastName);
 
 }());
