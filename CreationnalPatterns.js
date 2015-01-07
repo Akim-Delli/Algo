@@ -10,11 +10,10 @@
         occupation: "software Engineer",
         lastName: "Dell"
     },
-        firstName, lastName, JohnDoe, JaneDoe, sayName, greeting;
+        firstName, lastName, JohnDoe, JaneDoe, sayName, greeting, Car, Ford, Mustang;
 
     obj.firstName = "Akim";
     obj.lastName = "Delli";
-
 
     firstName = obj.firstName;
     lastName = obj.lastName;
@@ -64,4 +63,20 @@
     console.log(firstName);
     console.log(lastName);
 
+// Contructor Pattern
+
+    Car = function (model, year) {
+        this.model = model;
+        this.year = year;
+    };
+
+    Car.prototype.getCarInfo = function () {
+        return "The car model is " + this.model + " of " + this.year;
+    };
+
+    Ford = new Car("ford", 2005);
+    Mustang = new Car("mustang", 1964);
+
+    console.log(Ford.getCarInfo());
+    console.log(Mustang.getCarInfo());
 }());
