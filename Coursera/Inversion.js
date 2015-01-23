@@ -39,19 +39,18 @@ function countAndMerge(array) {
 
     x = countAndMerge(left);
     y = countAndMerge(right);
-    z = countSplit(left.sort(), right.sort());
+    z = countSplit(left.sort(function(a,b){return a - b}), right.sort(function(a,b){return a - b}));
     return x + y + z;
 }
 
 var fs = require("fs");
-var data = fs.readFileSync("test.txt", "utf8");
-//var data = fs.readFileSync("IntegerArray.txt", "utf8");
-var myArr = data.split('\n').map(Number);
-console.log(myArr);
+var data = fs.readFileSync("IntegerArray.txt", "utf8");
+var IntegerList = data.split('\n').map(Number);
 
 // test on a small input array
 numberOfInversionSmallArray = countAndMerge(input);
 
-numberOfInversion = countAndMerge(myArr);
+// IntegerArray data
+numberOfInversion = countAndMerge(IntegerList);
 
 console.log(numberOfInversion);
