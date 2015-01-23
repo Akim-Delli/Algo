@@ -3,7 +3,7 @@
  */
 'use strict';
 
-var input = [1, 3, 5, 2, 4, 6, 7],
+var input = [1, 6, 5, 2, 4, 3, 7],
     numberOfInversion;
 
 function countSplit(left, right) {
@@ -27,20 +27,18 @@ function countAndMerge(array) {
         halfll = Math.round(ll/2),
         left,
         right,
-        x = 0,
-        y = 0,
-        z = 0;
+        x,
+        y,
+        z;
 
     if (ll === 1) {return 0; }
 
     left = array.slice(0, halfll);
-    left.sort();
     right = array.slice(halfll, ll);
-    right.sort();
 
     x = countAndMerge(left);
     y = countAndMerge(right);
-    z = countSplit(left, right);
+    z = countSplit(left.sort(), right.sort());
     return x + y + z;
 }
 
