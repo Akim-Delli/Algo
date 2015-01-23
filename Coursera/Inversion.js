@@ -25,7 +25,7 @@ function countSplit(left, right) {
 function countAndMerge(array) {
 
     var ll = array.length,
-        halfll = Math.round(ll/2),
+        halfll = Math.round(ll / 2),
         left,
         right,
         x,
@@ -39,7 +39,7 @@ function countAndMerge(array) {
 
     x = countAndMerge(left);
     y = countAndMerge(right);
-    z = countSplit(left.sort(function(a,b){return a - b}), right.sort(function(a,b){return a - b}));
+    z = countSplit(left.sort(function (a, b) {return a - b; }), right.sort(function (a, b) {return a - b; }));
     return x + y + z;
 }
 
