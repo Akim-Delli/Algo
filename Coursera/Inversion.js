@@ -4,6 +4,7 @@
 'use strict';
 
 var input = [1, 6, 5, 2, 4, 3, 7],
+    numberOfInversionSmallArray,
     numberOfInversion;
 
 function countSplit(left, right) {
@@ -14,7 +15,7 @@ function countSplit(left, right) {
         if (left[i] < right[j]) {
             i = i + 1;
         } else {
-            count += left.length - i;
+            count = count + (left.length - i);
             j = j + 1;
         }
     }
@@ -42,7 +43,15 @@ function countAndMerge(array) {
     return x + y + z;
 }
 
+var fs = require("fs");
+var data = fs.readFileSync("test.txt", "utf8");
+//var data = fs.readFileSync("IntegerArray.txt", "utf8");
+var myArr = data.split('\n').map(Number);
+console.log(myArr);
 
-numberOfInversion = countAndMerge(input);
+// test on a small input array
+numberOfInversionSmallArray = countAndMerge(input);
+
+numberOfInversion = countAndMerge(myArr);
 
 console.log(numberOfInversion);
