@@ -4,9 +4,10 @@
 'use strict';
 
 var input = [5, 6, 1, 2, 4, 3, 7, 8, 9];
+var count = 0;
 
 function partition(input) {
-    if(input.length === 1) {
+    if (input.length === 1) {
         return {
             pivot : input[0],
             left : [],
@@ -40,16 +41,36 @@ function partition(input) {
 
 
 function quickSort(input) {
-    if (input.length === 1) {
-        return input;
-    }
 
     if (input.length === 0) {
         return [];
     }
-    var partitionedArray = partition(input);
-    //console.log(partitionedArray);
-    return (quickSort(partitionedArray.left)).concat([partitionedArray.pivot], quickSort(partitionedArray.right));
+    count = count + input.length - 1
+    console.log('Array :', input, "Count: ", count);
+    if (input.length === 1) {
+        return input;
+    }
+
+    var last = input[input.length - 1],
+        first = input[0],
+        middle = input[Math.ceil((input.length) / 2) - 1],
+        partitionedArray;
+
+    if (first < middle && middle < last) { input[0] = middle; input[Math.ceil((input.length) / 2) - 1] = first; }
+    if (first > middle && middle > last) { input[0] = middle; input[Math.ceil((input.length) / 2) - 1] = first; }
+    //if (middle < first && first < last) { temp = first; }
+    if (first < last && last < middle) { input[0] = last; input[input.length - 1] = first; }
+    if (last < first && last > middle) {  input[0] = last; input[input.length - 1] = first; }
+
+
+    console.log('first :', first, " Middle: ", middle, " Last: ", last);
+    console.log('input0 :', input[0], " inputMi: ", input[Math.ceil((input.length) / 2) - 1], " Last: ", input[input.length - 1]);
+
+
+    partitionedArray = partition(input);
+
+
+    return (quickSort(partitionedArray.left)).concat([partitionedArray], quickSort(partitionedArray.right));
 
 }
 var fs = require("fs");
@@ -59,8 +80,8 @@ var IntegerList = data.split('\n').map(Number);
 
 //var partitionedArray = partition(input);
 
-var index = input.indexOf(5);
 var sortedArray = quickSort(IntegerList);
 
 //console.log(partitionedArray);
-console.log("Sorted Array:  :", sortedArray);
+//console.log("Sorted Array:  :", sortedArray);
+//console.log("Number of comparison:  :", count);
