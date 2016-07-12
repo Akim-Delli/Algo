@@ -24,20 +24,32 @@ def merge_count_split_inv(arr_a, arr_b):
     inversion_count = 0
     i = 0
     j = 0
-    for k in range(0, len(arr_a) + len(arr_b) - 1):
+    lenghth = len(arr_a) + len(arr_b)
+    for k in range(0, lenghth):
+            print('k:', k)
+            # print('arr_a[i]:', arr_a[i])
+            # print('arr_b[j]:', arr_b[j])
+            # print('inversion_count', inversion_count)
             if arr_a[i] < arr_b[j]:
-                output_arr.append(arr_a[i])
-                i += 1
+                if i <(len(arr_a)):
+
+                    output_arr.append(arr_a[i])
+                    i += 1
             else:
-                output_arr.append(arr_b[j])
-                j += 1
-                inversion_count += len(arr_a[i:])
+                if j < (len(arr_b)):
+                    output_arr.append(arr_b[j])
+
+                    inversion_count += len(arr_a[i:])
+
+                    j += 1
+
                 print(len(arr_a[i:]))
+
 
     return output_arr, inversion_count
 
 test_case = [1, 3, 5, 2, 4, 6]
 
-print(count_inversion(test_case))
+# print(count_inversion(test_case))
 
-print(merge_count_split_inv([1, 3, 5], [2, 4, 6]))
+print("merge count", merge_count_split_inv([1, 3, 5], [2, 4, 6]))
