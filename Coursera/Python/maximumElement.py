@@ -5,6 +5,7 @@ import math
 
 
 def maximum_element(arr):
+    """ Compute the maximum element of a unimodal array"""
     if len(arr) == 1:
         return arr[0]
 
