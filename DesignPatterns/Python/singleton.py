@@ -1,6 +1,6 @@
 class Borg:
-    """Borg class mking class attributes global"""
-    # Attribute disctionary
+    """Borg class making class attributes global"""
+    # Attribute dictionary
     _shared_state = {}
 
     def __init__(self):
@@ -15,7 +15,7 @@ class Singleton(Borg):
         self._shared_state.update(kwargs)
 
     def __str__(self):
-        # Returns the attribute dictionay for printing
+        # Returns the attribute dictionary for printing
         return str(self._shared_state)
 
 x = Singleton(HTTP="hyper Text Transfer Protocol")
